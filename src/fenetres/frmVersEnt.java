@@ -13,17 +13,17 @@ import java.util.logging.Logger;
  *
  * @author sociepka
  */
-public class frmPaiment extends javax.swing.JDialog {
+public class frmVersEnt extends javax.swing.JDialog {
 
     /**
      * Creates new form frmPaiment
      */
-    public frmPaiment(java.awt.Frame parent, boolean modal) {
+    public frmVersEnt(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
     }
-public frmPaiment()  {
+public frmVersEnt()  {
         initComponents();
     }
     /**
@@ -35,8 +35,9 @@ public frmPaiment()  {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ajouterversement = new javax.swing.JButton();
-        factures = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         fichier = new javax.swing.JMenu();
         quitter = new javax.swing.JMenuItem();
@@ -62,18 +63,27 @@ public frmPaiment()  {
         aproposde = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Gestion des paiements");
+        setTitle("Entreprises adhérantes");
 
-        ajouterversement.setText("Ajouter un versement 1%");
-        ajouterversement.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"1", "Ikea"},
+                {"2", "Cultura"},
+                {"3", "Furet"},
+                {"4", "Fnac"}
+            },
+            new String [] {
+                "No", "Raison sociale"
+            }
+        ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ajouterversementMouseClicked(evt);
+                jTable1MouseClicked(evt);
             }
         });
+        jScrollPane1.setViewportView(jTable1);
 
-        factures.setText("Factures non réglées");
-        factures.setMaximumSize(new java.awt.Dimension(157, 23));
-        factures.setMinimumSize(new java.awt.Dimension(157, 23));
+        jLabel1.setText("Cliquez sur une entreprise pour entrer un versement");
 
         fichier.setText("Fichier");
 
@@ -174,20 +184,23 @@ public frmPaiment()  {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(factures, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ajouterversement))
-                .addContainerGap(81, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel1)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ajouterversement)
+                .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(factures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
@@ -209,18 +222,18 @@ public frmPaiment()  {
         // TODO add your handling code here:
     }//GEN-LAST:event_sommaireActionPerformed
 
-    private void ajouterversementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ajouterversementMouseClicked
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         /*
         * Ouverture de la fenetre de gestion des représentants via le menu.
         */
-        frmVersEnt dlg = null;
+        frmNewvers dlg = null;
         try {
-            dlg = new frmVersEnt(new javax.swing.JFrame(), true);
+            dlg = new  frmNewvers(new javax.swing.JFrame(), true);
         } catch (IOException ex) {
-            Logger.getLogger(frmPaiment.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(frmVersEnt.class.getName()).log(Level.SEVERE, null, ex);
         }
         dlg.setVisible(true);
-    }//GEN-LAST:event_ajouterversementMouseClicked
+    }//GEN-LAST:event_jTable1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -239,20 +252,26 @@ public frmPaiment()  {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPaiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmVersEnt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPaiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmVersEnt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPaiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmVersEnt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPaiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmVersEnt.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frmPaiment dialog = new frmPaiment(new javax.swing.JFrame(), true);
+                frmVersEnt dialog = null;
+                try {
+                    dialog = new frmVersEnt(new javax.swing.JFrame(), true);
+                } catch (IOException ex) {
+                    Logger.getLogger(frmVersEnt.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -268,7 +287,6 @@ public frmPaiment()  {
     private javax.swing.JMenuItem absence;
     private javax.swing.JMenu affichage;
     private javax.swing.JMenuItem aidesur;
-    private javax.swing.JButton ajouterversement;
     private javax.swing.JMenuItem aproposde;
     private javax.swing.JMenuItem barreetat;
     private javax.swing.JMenu barreoutils;
@@ -276,12 +294,14 @@ public frmPaiment()  {
     private javax.swing.JMenuItem encascade;
     private javax.swing.JMenuItem entreprises;
     private javax.swing.JMenu evenements;
-    private javax.swing.JButton factures;
     private javax.swing.JMenu fenetre;
     private javax.swing.JMenu fichier;
     private javax.swing.JMenuItem inscription;
     private javax.swing.JMenu interrogation;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JMenuItem moshorizontale;
     private javax.swing.JMenuItem mosverticale;
     private javax.swing.JMenuItem paiement;

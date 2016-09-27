@@ -8,22 +8,23 @@ package fenetres;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author sociepka
  */
-public class frmPaiment extends javax.swing.JDialog {
+public class frmNewvers extends javax.swing.JDialog {
 
     /**
      * Creates new form frmPaiment
      */
-    public frmPaiment(java.awt.Frame parent, boolean modal) {
+    public frmNewvers(java.awt.Frame parent, boolean modal) throws IOException {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
     }
-public frmPaiment()  {
+public frmNewvers()  {
         initComponents();
     }
     /**
@@ -35,8 +36,13 @@ public frmPaiment()  {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ajouterversement = new javax.swing.JButton();
-        factures = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         fichier = new javax.swing.JMenu();
         quitter = new javax.swing.JMenuItem();
@@ -62,18 +68,34 @@ public frmPaiment()  {
         aproposde = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Gestion des paiements");
+        setTitle("Entreprises adhérantes");
 
-        ajouterversement.setText("Ajouter un versement 1%");
-        ajouterversement.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabel1.setText("Raison Sociale");
+
+        jLabel2.setText("Montant (euros)");
+
+        jLabel3.setText("Date");
+
+        jButton1.setText("Ajouter");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ajouterversementMouseClicked(evt);
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
-        factures.setText("Factures non réglées");
-        factures.setMaximumSize(new java.awt.Dimension(157, 23));
-        factures.setMinimumSize(new java.awt.Dimension(157, 23));
+        jTextField1.setColumns(15);
+        jTextField1.setText("Ikea");
+
+        jTextField2.setColumns(10);
+        jTextField2.setText("1000");
+
+        jTextField3.setColumns(10);
+        jTextField3.setText("23/09/2016");
 
         fichier.setText("Fichier");
 
@@ -174,20 +196,41 @@ public frmPaiment()  {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(factures, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ajouterversement))
-                .addContainerGap(81, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(jButton1)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(ajouterversement)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(factures, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         pack();
@@ -209,18 +252,13 @@ public frmPaiment()  {
         // TODO add your handling code here:
     }//GEN-LAST:event_sommaireActionPerformed
 
-    private void ajouterversementMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ajouterversementMouseClicked
-        /*
-        * Ouverture de la fenetre de gestion des représentants via le menu.
-        */
-        frmVersEnt dlg = null;
-        try {
-            dlg = new frmVersEnt(new javax.swing.JFrame(), true);
-        } catch (IOException ex) {
-            Logger.getLogger(frmPaiment.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        dlg.setVisible(true);
-    }//GEN-LAST:event_ajouterversementMouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+    JOptionPane.showMessageDialog(null, "Le versement a bien été effectué", "Versement effectué", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -239,20 +277,28 @@ public frmPaiment()  {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmPaiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmNewvers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmPaiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmNewvers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmPaiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmNewvers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmPaiment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frmNewvers.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                frmPaiment dialog = new frmPaiment(new javax.swing.JFrame(), true);
+                frmNewvers dialog = null;
+                try {
+                    dialog = new frmNewvers(new javax.swing.JFrame(), true);
+                } catch (IOException ex) {
+                    Logger.getLogger(frmNewvers.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -268,7 +314,6 @@ public frmPaiment()  {
     private javax.swing.JMenuItem absence;
     private javax.swing.JMenu affichage;
     private javax.swing.JMenuItem aidesur;
-    private javax.swing.JButton ajouterversement;
     private javax.swing.JMenuItem aproposde;
     private javax.swing.JMenuItem barreetat;
     private javax.swing.JMenu barreoutils;
@@ -276,12 +321,18 @@ public frmPaiment()  {
     private javax.swing.JMenuItem encascade;
     private javax.swing.JMenuItem entreprises;
     private javax.swing.JMenu evenements;
-    private javax.swing.JButton factures;
     private javax.swing.JMenu fenetre;
     private javax.swing.JMenu fichier;
     private javax.swing.JMenuItem inscription;
     private javax.swing.JMenu interrogation;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JMenuItem moshorizontale;
     private javax.swing.JMenuItem mosverticale;
     private javax.swing.JMenuItem paiement;
